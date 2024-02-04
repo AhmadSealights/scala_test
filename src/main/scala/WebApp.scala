@@ -5,18 +5,12 @@ object WebApp extends MainRoutes {
     def hello() = {
         "Hello, World!"
     }
-
-    // Any additional routes can be defined here
-
-    // Initialize the Cask server
-    override def main(args: Array[String]): Unit = {
-        super.main(args)
+    @cask.get("/")
+    def hello() = {
+        "Hello, World!"
     }
-}
 
-// This is necessary for the fat JAR to identify the entry point
-object Main {
-    def main(args: Array[String]): Unit = {
-        WebApp.main(args)
-    }
+    override def port: Int = 8080
+
+    initialize()
 }
