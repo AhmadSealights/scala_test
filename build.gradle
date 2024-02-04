@@ -1,0 +1,36 @@
+plugins {
+    id 'scala'
+    id 'application'
+}
+
+mainClassName = 'WebApp' // Replace with your main class name
+
+group 'com.example'
+version '1.0-SNAPSHOT'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    implementation 'org.scala-lang:scala-library:2.13.3'
+    implementation 'com.lihaoyi:cask_2.13:0.7.11'
+}
+
+jar {
+    manifest {
+        attributes(
+            'Main-Class': mainClassName
+        )
+    }
+    from {
+        configurations.runtimeClasspath.collect { it.isDirectory() ? it : zipTree(it) }
+    }
+    duplicatesStrategy = DuplicatesStrategy.EXCLUDE
+}
+
+//If you need to specify a specific version of Java
+compileJava {
+    sourceCompatibility = '11'
+    targetCompatibility = '11'
+}
