@@ -14,7 +14,7 @@ dependencies {
 jar {
     manifest {
         attributes(
-            'Main-Class': 'WebApp'
+            'Main-Class': 'server.WebApp'
         )
     }
     from {
