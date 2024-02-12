@@ -8,6 +8,7 @@ import org.apache.http.client.methods.HttpGet;
 import org.apache.http.impl.client.CloseableHttpClient;
 import org.apache.http.impl.client.HttpClients;
 import org.junit.Assert;
+import java.util.concurrent.TimeUnit;//for sleep
 
 import java.io.IOException;
 
@@ -23,6 +24,7 @@ public class ApiTestSteps {
 
     @When("I request {string}")
     public void i_request(String url) throws IOException {
+        TimeUnit.SECONDS.sleep(30);
         HttpGet request = new HttpGet(url);
         response = httpClient.execute(request);
     }
