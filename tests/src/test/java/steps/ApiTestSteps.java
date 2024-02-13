@@ -8,7 +8,6 @@ import org.apache.http.client.methods.HttpGet;
 import org.apache.http.impl.client.CloseableHttpClient;
 import org.apache.http.impl.client.HttpClients;
 import org.junit.Assert;
-import java.util.concurrent.TimeUnit;//for sleep
 
 import java.io.IOException;
 
@@ -20,11 +19,16 @@ public class ApiTestSteps {
     @Given("The API server is running")
     public void the_api_server_is_running() {
         httpClient = HttpClients.createDefault();
+        try {
+            Thread.sleep(3000);// Sleep for 3 seconds
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+        System.out.println("Slept for 30 seconds!");
     }
 
     @When("I request {string}")
     public void i_request(String url) throws IOException {
-        TimeUnit.SECONDS.sleep(30);
         HttpGet request = new HttpGet(url);
         response = httpClient.execute(request);
     }
