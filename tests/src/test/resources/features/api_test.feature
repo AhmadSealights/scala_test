@@ -9,3 +9,8 @@ Feature: API Testing
     Given The API server is running
     When I request "http://localhost:8080/non"
     Then The response should be an error
+
+  Scenario: Request to the string should be a greeting
+    Given The API server is running
+    When I request "http://localhost:8080/s/dude"
+    Then The second response status should be "dude"
