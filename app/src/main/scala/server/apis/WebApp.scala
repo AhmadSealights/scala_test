@@ -10,7 +10,7 @@ object WebApp extends MainRoutes {
     }
     @cask.get("/s/:name")
     def s(name: String) = {
-        "Hello, "+name"+"!"
+        "Hello, " + name + "!"
     }
 
     override def port: Int = 8080
