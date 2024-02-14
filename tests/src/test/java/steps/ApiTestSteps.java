@@ -21,7 +21,7 @@ public class ApiTestSteps {
     public void the_api_server_is_running() {
         httpClient = HttpClients.createDefault();
         try {
-            Thread.sleep(30000);// Sleep for 30 seconds
+            Thread.sleep(3000);// Sleep for 30 seconds
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
@@ -49,6 +49,13 @@ public class ApiTestSteps {
     @Then("The second response status should be {string}")
     public void the_hello_response_status_should_be(String name) throws IOException {
         String m="Hello, " + name;
+        String n=EntityUtils.toString(response.getEntity());
+        Assert.assertEquals(m,n);
+        response.close();
+    }
+    @Then("Two layer call {string}")
+    public void two_layer(String s) throws IOException {
+        String m=s+" second";
         String n=EntityUtils.toString(response.getEntity());
         Assert.assertEquals(m,n);
         response.close();

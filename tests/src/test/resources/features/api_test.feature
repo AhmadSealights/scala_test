@@ -14,3 +14,8 @@ Feature: API Testing
     Given The API server is running
     When I request "http://localhost:8080/s/dude"
     Then The second response status should be "dude"
+  
+  Scenario: Two layer function should return
+    Given The API server is running
+    When I request "http://localhost:8080/twolayer?s=dude"
+    Then Two layer call "dude"
