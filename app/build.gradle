@@ -9,6 +9,11 @@ repositories {
 dependencies {
     implementation 'com.lihaoyi:cask_2.13:0.7.11'
     implementation 'org.scala-lang:scala-library:2.13.6'
+
+
+    testImplementation 'io.cucumber:cucumber-scala_2.13:6.10.4'
+    testImplementation 'io.cucumber:cucumber-junit:6.10.4'
+    testImplementation 'junit:junit:4.13.2'
 }
 
 jar {
@@ -21,4 +26,14 @@ jar {
         configurations.runtimeClasspath.collect { it.isDirectory() ? it : zipTree(it) }
     }
     duplicatesStrategy = DuplicatesStrategy.EXCLUDE
+}
+
+
+test {
+    //useJUnitPlatform()
+    useJUnit()
+    testLogging {
+        events "passed", "skipped", "failed"
+        showStandardStreams = true
+    }
 }
