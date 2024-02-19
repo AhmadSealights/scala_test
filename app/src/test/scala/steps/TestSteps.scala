@@ -18,5 +18,6 @@ class CombineStringsSteps extends ScalaDsl with EN {
   Then("""the result should be {string}""") { (expectedResult: String) =>
     System.out.println(s"The result is $result")
     assert(result == expectedResult);
+    Thread.sleep(10000);
   }
 }
