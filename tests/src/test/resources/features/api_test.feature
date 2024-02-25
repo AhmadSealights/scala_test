@@ -23,4 +23,4 @@ Feature: API Testing
   Scenario: Case class test
     Given The API server is running
     When I request "http://localhost:8080/caseclass?name=Alice&age=25"
-    Then The response should be "Name: Alice, Age: 25"
+    Then The response should be "name: Alice, age: 25"

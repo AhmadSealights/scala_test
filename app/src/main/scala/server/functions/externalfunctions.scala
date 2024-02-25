@@ -9,7 +9,7 @@ object  externalfunctions{
         val person = Person(n, a)
         //These two methods are to get coverage of the methods inhereted by the product class
         val namefield = person.productElementNames.next()//returns "Name"
-        val agefield=person.productElementName(0)// returns "Age"
+        val agefield=person.productElementName(1)// returns "Age"
         person match {
         case Person(name, age) => return(s"$namefield: $name, $agefield: $age")
         }
