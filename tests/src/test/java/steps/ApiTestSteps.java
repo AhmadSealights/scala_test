@@ -60,5 +60,10 @@ public class ApiTestSteps {
         Assert.assertEquals(m,n);
         response.close();
     }
-
+    @Then("The response should be {string}")
+    public void the_response_should_be(String res) throws IOException {
+        String n=EntityUtils.toString(response.getEntity());
+        Assert.assertEquals(n,res);
+        response.close();
+    }
 }

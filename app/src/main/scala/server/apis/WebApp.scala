@@ -17,6 +17,10 @@ object WebApp extends MainRoutes {
     def twolayer(s: String) = {
         externalfunctions.second(s);
     }
+    @cask.get("/caseclass")
+    def caseclass(name: String,age: Int) = {
+        externalfunctions.caseclass(name,age);
+    }
 
     override def port: Int = 8080
 
