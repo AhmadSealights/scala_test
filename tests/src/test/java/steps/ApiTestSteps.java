@@ -21,7 +21,7 @@ public class ApiTestSteps {
     public void the_api_server_is_running() {
         httpClient = HttpClients.createDefault();
         try {
-            Thread.sleep(30000);// Sleep for 30 seconds
+            Thread.sleep(3000);// Sleep for 30 seconds
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
