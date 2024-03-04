@@ -6,3 +6,5 @@ build
 sl-config.json
 sltoken.txt
 bin
+runtests.sh
+runapp.sh
